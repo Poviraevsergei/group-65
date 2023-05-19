@@ -4,4 +4,14 @@
 
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
+
+    <filter-mapping>
+        <filter-name>filter2</filter-name>
+        <url-pattern>/c65annotation</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>filter1</filter-name>
+        <url-pattern>/c65annotation</url-pattern>
+    </filter-mapping>
 </web-app>
