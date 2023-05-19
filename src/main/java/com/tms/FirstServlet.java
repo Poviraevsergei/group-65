@@ -2,7 +2,6 @@ package com.tms;
 
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebListener;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -19,7 +18,11 @@ public class FirstServlet extends HttpServlet {
         resp.setContentType("text/html"); //как браузеру отобразить полученную информацию
         PrintWriter printWriter = resp.getWriter();
         printWriter.println("<h1> HELLO WORLD! From c65 </h1>");
-        printWriter.close();
+
+        //create request attribute
+        req.setAttribute("name", "Bill Gates");
+
+        req.getRequestDispatcher("/WEB-INF/pages/main.jsp").forward(req, resp);
     }
 
     //Жизненный цикл
