@@ -14,4 +14,8 @@
         <filter-name>filter1</filter-name>
         <url-pattern>/c65annotation</url-pattern>
     </filter-mapping>
+
+    <listener>
+        <listener-class>com.tms.listeners.StartApplicationListener</listener-class>
+    </listener>
 </web-app>
