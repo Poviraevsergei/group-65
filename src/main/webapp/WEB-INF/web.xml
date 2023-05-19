@@ -4,15 +4,4 @@
 
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
-
-    <filter>
-        <filter-name>my-filter</filter-name>
-        <filter-class>com.tms.filters.MyFirstFilter</filter-class>
-    </filter>
-
-    <filter-mapping>
-        <filter-name>my-filter</filter-name>
-        <url-pattern>/c65annotation</url-pattern>
-    </filter-mapping>
-
 </web-app>
