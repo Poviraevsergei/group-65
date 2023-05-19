@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,13 +17,16 @@ public class FirstServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html"); //как браузеру отобразить полученную информацию
-        PrintWriter printWriter = resp.getWriter();
-        printWriter.println("<h1> HELLO WORLD! From c65 </h1>");
 
-        //create request attribute
-        req.setAttribute("name", "Bill Gates");
-
-        req.getRequestDispatcher("/WEB-INF/pages/main.jsp").forward(req, resp);
+        HttpSession session = req.getSession(); //Cookie name=Vaserman
+        String name = (String) session.getAttribute("name"); //null
+        PrintWriter writer = resp.getWriter();
+        if (name == null) {
+            session.setAttribute("name", "Vaserman"); //name -> Vaserman
+            writer.print("Hello, I don't know why are you....");
+        } else {
+            writer.print("Hello my dear " + session.getAttribute("name"));
+        }
     }
 
     //Жизненный цикл
