@@ -27,6 +27,7 @@ public class FirstServlet extends HttpServlet {
         } else {
             writer.print("Hello my dear " + session.getAttribute("name"));
         }
+        req.getRequestDispatcher("/WEB-INF/pages/my-first-html.html").forward(req, resp);
     }
 
     //Жизненный цикл
