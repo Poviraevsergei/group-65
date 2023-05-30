@@ -28,7 +28,7 @@ public class CookieServlet extends HttpServlet {
         }
 
         if (!flag) {
-            Cookie cookie = new Cookie("name", "Dima");
+            Cookie cookie = new Cookie("name", "Alex");
             resp.addCookie(cookie);
             Writer writer = resp.getWriter();
             writer.write("Try again! We add cookie to you!");
