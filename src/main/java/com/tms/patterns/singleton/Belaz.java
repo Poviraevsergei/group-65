@@ -1,4 +1,4 @@
-package com.tms.patterns;
+package com.tms.patterns.singleton;
 
 public class Belaz {
     public int cost;
