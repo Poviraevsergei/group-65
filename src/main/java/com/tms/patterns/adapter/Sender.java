@@ -1,5 +1,5 @@
 package com.tms.patterns.adapter;
 
-public abstract class Sender {
-    abstract void send();
+public interface Sender {
+    void send();
 }

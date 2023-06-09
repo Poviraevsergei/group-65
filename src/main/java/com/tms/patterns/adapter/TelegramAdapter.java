@@ -1,11 +1,9 @@
 package com.tms.patterns.adapter;
 
-public class TelegramAdapter extends Sender {
-
-    private final TelegramLogic telegramLogic = new TelegramLogic();
+public class TelegramAdapter extends TelegramLogic implements Sender {
 
     @Override
-    void send() {
-        telegramLogic.sendMessageToTelegram();
+    public void send() {
+        sendMessageToTelegram();
     }
 }
