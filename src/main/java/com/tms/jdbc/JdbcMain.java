@@ -8,13 +8,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class JdbcMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         //1. регистрация драйвера
+        Connection connection = null;
         try {
             Class.forName("org.postgresql.Driver");
 
             //2. создание соединения
-            Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/group_65_db", "postgres", "root"); //URL(host,port,database_name), login, password
+            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/group_65_db", "postgres", "root"); //URL(host,port,database_name), login, password
 
             //3. создание PrepareStatement
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM users");
@@ -37,8 +38,10 @@ public class JdbcMain {
                 userList.add(user);
             }
             System.out.println(userList);
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             System.out.println(e);
+        } finally {
+            connection.close();
         }
     }
 }

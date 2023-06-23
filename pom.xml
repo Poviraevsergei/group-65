@@ -44,12 +44,10 @@
             <version>1.18.24</version>
             <scope>provided</scope>
         </dependency>
-
     </dependencies>
 
     <build>
         <finalName>TMS</finalName>
-
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -63,6 +61,19 @@
                 <configuration>
                     <source>16</source>
                     <target>16</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>9.8.1</version>
+                <configuration>
+                    <url>jdbc:postgresql://localhost:5432/group_65_db</url>
+                    <url>jdbc:postgresql://localhost:5432/postgres</url>
+                    <user>postgres</user>
+                    <password>root</password>
+                    <cleanDisabled>false</cleanDisabled>
+                    <baselineVersion>1.0.5</baselineVersion>
                 </configuration>
             </plugin>
         </plugins>
