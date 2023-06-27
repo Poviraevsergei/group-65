@@ -10,7 +10,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @WebServlet("/*")
 public class FrontController extends HttpServlet {
@@ -46,14 +45,14 @@ public class FrontController extends HttpServlet {
         if ("GET".equals(method)) {
             switch (path) {
                 case "/getUser" -> userController.getUser(req, resp);
-                case "/deleteUser" -> userController.deleteUser(req, resp);
                 case "/getAllNews" -> newsController.getAllNews(req, resp);
-                case "/updateNews" -> newsController.updateNews(req, resp);
+                case "/getOneNews" -> newsController.getOneNews(req, resp);
             }
         }
         if ("POST".equals(method)) {
             switch (path) {
                 case "/createUser" -> userController.createUser(req, resp);
+                case "/deleteUser" -> userController.deleteUser(req, resp);
             }
         }
     }
